@@ -1,24 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Menu from "./Menu";
+import { menu } from "../assets/data.js"; 
+import { Link } from "react-router-dom";
 
-class Sections extends Component {
-    render() {
-        return (
-          <>
-            <div className="single-food">
-              <div
-                className="img">
-                  <img src={this.props.img} alt="" />
-                </div>
-                
-              <div className="title-price">
-                <h3>{this.props.title}</h3>
-                <p>{this.props.price}</p>
-              </div>
-              <div className="food-desc">{this.props.desc}</div>
-            </div>
-          </>
-        );
-    }
+class Menu extends Component {
+  render() {
+    return (
+      <div className="foods-container">
+        {menu.map((item) => (
+          <Link
+            key={item.id}
+            to={`/food/${item.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <Menu
+              id={item.id}
+              title={item.title}
+              category={item.category}
+              price={item.price}
+              img={item.img}
+              desc={item.desc}
+            />
+          </Link>
+        ))}
+      </div>
+    );
+  }
 }
 
-export default Sections;
+export default Menu;
