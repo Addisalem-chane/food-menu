@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Menu</title>
+    <!-- style  css-->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  
+  <body>
+    <div class="all-container">
+      <!-- Header Start -->
+      <header class="title">
+        <h1>🍽️ Ethiopian Food Menu</h1>
+        <p>Discover traditional dishes from Ethiopia</p>
+      </header>
+      <!-- Header End -->
+
+      <!-- All Food Items Container Start -->
+      <div class="foods-container" id="menu-section">
+        <!-- JavaScript will inject menu items here -->
+      </div>
+      <!-- All Food Items Container End -->
+
+      <!-- Footer Start -->
+      <footer>
+        <p>&copy; 2025 Addis Food. All rights reserved. | Made with ❤️ by ADDIS</p>
+      </footer>
+      <!-- Footer End -->
+    </div>
+
+    <!-- Script -->
+    <script type="module">
+      import menu from './data.js';
+
+      const sectionCenter = document.getElementById('menu-section');
+
+      window.addEventListener('DOMContentLoaded', () => {
+        displayMenuItems(menu);
+      });
+
+      function displayMenuItems(menuItems) {
+        let displayMenu = menuItems.map(function (item) {
+          return `
+          <a href="food.html?id=${item.id}" class="single-food">
+            <div class="img">
+              <img src="${item.img}" alt="${item.title}" />
+            </div>
+            <div class="title-price">
+              <h3>${item.title}</h3>
+              <p>$${item.price.toFixed(2)}</p>
+            </div>
+            <div class="food-desc">
+              ${item.desc}
+            </div>
+          </a>
+          `;
+        });
+        displayMenu = displayMenu.join('');
+        sectionCenter.innerHTML = displayMenu;
+      }
+    </script>
+  </body>
+</html>
