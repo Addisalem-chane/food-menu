@@ -4,7 +4,7 @@ A modern, responsive web app showcasing traditional Ethiopian dishes. Built usin
 
 ## 🌍 Live Demo
 
-🔗 [Visit Live Site on Netlify](https://your-netlify-site.netlify.app/)  
+🔗 [Visit Live Site on Netlify](https://addisfood.netlify.app/)  
 _(Replace this with your real link after deployment)_
 
 ---
